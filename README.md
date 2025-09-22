@@ -73,7 +73,7 @@ let info = imsz_from_reader(&mut file)?;
 * JPEG 2000
 * PCX
 * PNG
-* PSD
+* PSD/PSB
 * OpenEXR
 * QOI
 * TGA

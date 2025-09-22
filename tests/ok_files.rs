@@ -228,6 +228,23 @@ fn png() {
 
 
 #[test]
+fn psb() {
+    let info = imsz::imsz_from_path(get_testdata("image.psb"));
+    match info {
+        Ok(info) => {
+            assert_eq!(info.format, imsz::ImFormat::PSB);
+            assert_eq!(info.format.name(), "PSB");
+            assert_eq!(info.width,  32);
+            assert_eq!(info.height, 16);
+        }
+        Err(error) => {
+            assert!(false, "{}", error);
+        }
+    }
+}
+
+
+#[test]
 fn psd() {
     let info = imsz::imsz_from_path(get_testdata("image.psd"));
     match info {

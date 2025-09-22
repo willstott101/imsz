@@ -53,18 +53,19 @@ class ImFormat(Enum):
     WEBP    =  5
     QOI     =  6
     PSD     =  7
-    XCF     =  8
-    ICO     =  9
-    AVIF    = 10
-    TIFF    = 11
-    OpenEXR = 12
-    PCX     = 13
-    TGA     = 14
-    DDS     = 15
-    HEIF    = 16
-    JP2K    = 17
-    DIB     = 18
-    VTF     = 19
+    PSB     =  8
+    XCF     =  9
+    ICO     = 10
+    AVIF    = 11
+    TIFF    = 12
+    OpenEXR = 13
+    PCX     = 14
+    TGA     = 15
+    DDS     = 16
+    HEIF    = 17
+    JP2K    = 18
+    DIB     = 19
+    VTF     = 20
 
     def __str__(self) -> str:
         return ffi.string(_imsz.imsz_format_name(self.value)).decode('ASCII')

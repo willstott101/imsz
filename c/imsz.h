@@ -65,19 +65,20 @@ typedef enum ImFormat {
     IMSZ_WEBP    =  5u, ///< WebP files. Supported sub-formats: `VP8 `, `VP8L`, `VP8X`.
     IMSZ_QOI     =  6u, ///< Quite OK Image format files.
     IMSZ_PSD     =  7u, ///< Adobe Photoshop files.
-    IMSZ_XCF     =  8u, ///< GIMP files.
-    IMSZ_ICO     =  9u, ///< ICO files can contain multiple images. This returns the dimensions of the biggest image in the file.
-    IMSZ_AVIF    = 10u, ///< AV1 Image File Format.
-    IMSZ_TIFF    = 11u, ///< Tag Image File Format. Supports big endian and little endian TIFF files.
-    IMSZ_OpenEXR = 12u, ///< OpenEXR files.
-    IMSZ_PCX     = 13u, ///< PiCture eXchange files.
-    IMSZ_TGA     = 14u, ///< TARGA (Truevision Advanced Raster Graphics Adapter) files.
-    IMSZ_DDS     = 15u, ///< DirectDraw Surface files.
-    IMSZ_HEIF    = 16u, ///< HEIC/HEIF files.
-    IMSZ_JP2K    = 17u, ///< JPEG 2000 files.
-    IMSZ_DIB     = 18u, ///< Device-Independent bitmap files.
-    IMSZ_VTF     = 19u, ///< Valve Texture Format.
-    IMSZ_ILBM    = 20u, ///< Interleaved Bitmap files, including Planar Bitmap variant.
+    IMSZ_PSB     =  8u, ///< Adobe Photoshop files.
+    IMSZ_XCF     =  9u, ///< GIMP files.
+    IMSZ_ICO     = 10u, ///< ICO files can contain multiple images. This returns the dimensions of the biggest image in the file.
+    IMSZ_AVIF    = 11u, ///< AV1 Image File Format.
+    IMSZ_TIFF    = 12u, ///< Tag Image File Format. Supports big endian and little endian TIFF files.
+    IMSZ_OpenEXR = 13u, ///< OpenEXR files.
+    IMSZ_PCX     = 14u, ///< PiCture eXchange files.
+    IMSZ_TGA     = 15u, ///< TARGA (Truevision Advanced Raster Graphics Adapter) files.
+    IMSZ_DDS     = 16u, ///< DirectDraw Surface files.
+    IMSZ_HEIF    = 17u, ///< HEIC/HEIF files.
+    IMSZ_JP2K    = 18u, ///< JPEG 2000 files.
+    IMSZ_DIB     = 19u, ///< Device-Independent bitmap files.
+    IMSZ_VTF     = 20u, ///< Valve Texture Format.
+    IMSZ_ILBM    = 21u, ///< Interleaved Bitmap files, including Planar Bitmap variant.
 } ImFormat;
 
 /// Initialize an ImInfo variable with all 0 values.

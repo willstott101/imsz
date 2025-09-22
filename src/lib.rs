@@ -50,25 +50,26 @@ pub enum ImFormat {
 
     /// Adobe Photoshop files.
     PSD     =  7,
+    PSB     =  8,
 
     /// GIMP files.
-    XCF     =  8,
+    XCF     =  9,
 
     /// ICO files can contain multiple images. This returns the dimensions of
     /// the biggest image in the file.
-    ICO     =  9,
+    ICO     = 10,
 
     /// AV1 Image File Format.
-    AVIF    = 10,
+    AVIF    = 11,
 
     /// Tag Image File Format. Supports big endian and little endian TIFF files.
-    TIFF    = 11,
+    TIFF    = 12,
 
     /// OpenEXR files.
-    OpenEXR = 12,
+    OpenEXR = 13,
 
     /// PiCture eXchange files.
-    PCX     = 13,
+    PCX     = 14,
 
     /// TARGA (Truevision Advanced Raster Graphics Adapter) files.
     /// 
@@ -76,26 +77,26 @@ pub enum ImFormat {
     /// is no good way to detect TGA files. Note that this string is optional
     /// to this file format and thus there can be TGA files that aren't supported
     /// by this library.
-    TGA     = 14,
+    TGA     = 15,
 
     /// DirectDraw Surface files.
-    DDS     = 15,
+    DDS     = 16,
 
     /// HEIC/HEIF files. These are extremely similar to AVIF and use the same
     /// parsing code.
-    HEIF    = 16,
+    HEIF    = 17,
 
     /// JPEG 2000 files.
-    JP2K    = 17,
+    JP2K    = 18,
 
     /// Device-Independent Bitmap files.
-    DIB     = 18,
+    DIB     = 19,
 
     /// Valve Texture Format.
-    VTF     = 19,
+    VTF     = 20,
 
     /// Interleaved Bitmap files, including Planar Bitmap variant.
-    ILBM    = 20,
+    ILBM    = 21,
 }
 
 impl ImFormat {
@@ -108,6 +109,7 @@ impl ImFormat {
             Self::WEBP    => "WebP",
             Self::QOI     => "QOI",
             Self::PSD     => "PSD",
+            Self::PSB     => "PSB",
             Self::XCF     => "XCF",
             Self::ICO     => "ICO",
             Self::AVIF    => "AVIF",
@@ -969,6 +971,16 @@ where R: Read, R: Seek {
 
         return Ok(ImInfo {
             format: ImFormat::PSD,
+            width:  w as u64,
+            height: h as u64,
+        });
+    } else if size >= 22 && preamble.starts_with(b"8BPS\0\x02\0\0\0\0\0\0") {
+        // PSB (almost identical header to a PSD)
+        let h = u32::from_be_bytes(array4!(preamble, 14));
+        let w = u32::from_be_bytes(array4!(preamble, 18));
+
+        return Ok(ImInfo {
+            format: ImFormat::PSB,
             width:  w as u64,
             height: h as u64,
         });
